@@ -1,4 +1,4 @@
-package com.learning.vending.daoimpl;
+package com.learning.vending.jdbcdaoimpl;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.learning.vending.dao.VendingMachineJdbcDao;
+import com.learning.vending.jdbcdao.VendingMachineDao;
 import com.learning.vending.model.Product;
 
-public class VendingMachineJdbcDaoImpl implements VendingMachineJdbcDao {
+public class VendingMachineDaoImpl implements VendingMachineDao {
 
 	@Autowired
 	JdbcTemplate jdbc;
