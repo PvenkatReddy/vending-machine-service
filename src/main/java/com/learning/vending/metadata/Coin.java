@@ -12,5 +12,4 @@ public enum Coin {
 		this.price = price;
 	}
 	
-	
 }

@@ -1,11 +1,11 @@
-package com.learning.vending.dao;
+package com.learning.vending.jdbcdao;
 
 import java.util.List;
 
 
 import com.learning.vending.model.Product;
 
-public interface VendingMachineJdbcDao {
+public interface VendingMachineDao {
 	
 	public List<Product> getProducts();
 
