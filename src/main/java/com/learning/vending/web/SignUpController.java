@@ -13,7 +13,7 @@ import com.learning.vending.service.SignUpService;
 
 @RestController
 @RequestMapping("/vendingmachine")
-public class SignupController {
+public class SignUpController {
 
 	@Autowired
 	SignUpService signUpService;
