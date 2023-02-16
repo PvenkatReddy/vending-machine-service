@@ -4,10 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.learning.vending.jdbcdao.UserDao;
-import com.learning.vending.jdbcdao.SignUpDao;
 import com.learning.vending.jdbcdao.VendingMachineDao;
 import com.learning.vending.jdbcdaoimpl.UserDaoImpl;
-import com.learning.vending.jdbcdaoimpl.SignUpDaoImpl;
 import com.learning.vending.jdbcdaoimpl.VendingMachineDaoImpl;
 import com.learning.vending.service.MachineService;
 import com.learning.vending.service.SignInService;
@@ -32,11 +30,6 @@ public class VendingMachineConfiguration {
 	@Bean
 	public SignUpService getSigUpService() {
 		return new SignUpServiceImpl();
-	}
-	
-	@Bean
-	public SignUpDao getSignUpDao() {
-		return new SignUpDaoImpl();
 	}
 	
 	@Bean

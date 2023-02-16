@@ -4,6 +4,8 @@ package com.learning.vending.jdbcdaoimpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.util.StringUtils;
 
 import com.learning.vending.exception.VendingMachineUserDataException;
@@ -32,6 +34,19 @@ public class UserDaoImpl implements UserDao {
 			sql = sql+" email=?";
 		}
 		return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(User.class), parameter); 
+	}
+	
+	@Override
+	public int createUser(User user) {
+		
+		SimpleJdbcInsert simpleInsert = new SimpleJdbcInsert(jdbcTemplate);
+		
+		simpleInsert.withTableName("USER").usingGeneratedKeyColumns("id");
+		
+		Number id = simpleInsert.executeAndReturnKey(new BeanPropertySqlParameterSource(user));
+		
+		return id.intValue();
+		
 	}
 
 }
