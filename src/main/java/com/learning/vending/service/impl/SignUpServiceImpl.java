@@ -2,7 +2,6 @@ package com.learning.vending.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.learning.vending.common.Password;
 import com.learning.vending.jdbcdao.SignUpDao;
 import com.learning.vending.model.User;

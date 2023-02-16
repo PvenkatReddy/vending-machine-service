@@ -17,7 +17,7 @@ public class SignUpDaoImpl implements SignUpDao{
 	public int createUser(User user) {
 		
 		SimpleJdbcInsert simpleInsert = new SimpleJdbcInsert(jdbTemplate);
-		
+
 		simpleInsert.withTableName("USER").usingGeneratedKeyColumns("id");
 		
 		Number id = simpleInsert.executeAndReturnKey(new BeanPropertySqlParameterSource(user));
