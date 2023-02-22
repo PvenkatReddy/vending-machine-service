@@ -23,10 +23,17 @@ public class Bucket<E1, E2> {
 		this.second = second;
 	}
 
-	public Bucket(E1 first, E2 second) {
+	private Bucket(E1 first, E2 second) {
 		super();
 		this.first = first;
 		this.second = second;
+	}
+	
+	public Bucket() {
+	}
+
+	public Bucket<E1, E2> of(E1 first, E2 second) {
+		return new Bucket<E1, E2>(first, second);
 	}
 	
 }

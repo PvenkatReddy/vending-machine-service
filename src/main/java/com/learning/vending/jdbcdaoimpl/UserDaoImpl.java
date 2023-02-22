@@ -19,12 +19,11 @@ public class UserDaoImpl implements UserDao {
 	
 	@Override
 	public User getUser(String userName, String email) {
-		System.out.println("getUser");
 		if(!StringUtils.hasLength(userName) && !StringUtils.hasLength(email)) {
 			throw new VendingMachineUserDataException("Username/email is empty");
 		} 	
 
-		String sql = "select * from user where ";
+		String sql = "select * from users where ";
 		
 		String parameter = email;
 		if(StringUtils.hasLength(userName)) {
@@ -41,7 +40,7 @@ public class UserDaoImpl implements UserDao {
 		
 		SimpleJdbcInsert simpleInsert = new SimpleJdbcInsert(jdbcTemplate);
 		
-		simpleInsert.withTableName("USER").usingGeneratedKeyColumns("id");
+		simpleInsert.withTableName("USERS").usingGeneratedKeyColumns("id");
 		
 		Number id = simpleInsert.executeAndReturnKey(new BeanPropertySqlParameterSource(user));
 		
