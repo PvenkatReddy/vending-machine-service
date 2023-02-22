@@ -1,3 +1,5 @@
+ Vending Machine Project Example
+ 
 echo "# vending-machine-service" >> README.md
 git init
 git add README.md
