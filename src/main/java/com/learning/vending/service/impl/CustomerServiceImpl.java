@@ -72,21 +72,27 @@ public class CustomerServiceImpl implements CustomerService {
 			}
 			CoinEnum[] coinEnums = CoinEnum.values();
 			for(CoinEnum coinEnum: coinEnums) {
-				int coinCount = CoinEnum.getCoinCount(difference, coinEnum);
-				Coin dbCoin = coinMap.get(coinEnum);
-				if(coinCount > 0 && dbCoin != null) {
-					Coin updateCoin = new Coin();
-					updateCoin.setId(dbCoin.getId());
-					updateCoin.setName(dbCoin.getName());
-					if(dbCoin.getCount() < coinCount) {
-						difference = difference - dbCoin.getCount()*coinEnum.getPrice();
-						updateCoin.setCount(0);
-					} else {
-						difference = difference - coinCount*coinEnum.getPrice();
-						updateCoin.setCount(dbCoin.getCount()-coinCount);
-						dbCoin.setCount(coinCount);
+				if(difference >= coinEnum.getPrice()) {
+					int coinCount = CoinEnum.getCoinCount(difference, coinEnum);
+					Coin dbCoin = coinMap.get(coinEnum);
+					if(coinCount > 0 && dbCoin != null) {
+						Coin updateCoin = new Coin();
+						updateCoin.setId(dbCoin.getId());
+						updateCoin.setName(dbCoin.getName());
+						if(dbCoin.getCount() < coinCount) {
+							difference = difference - dbCoin.getCount()*coinEnum.getPrice();
+							updateCoin.setCount(0);
+						} else {
+							difference = difference - coinCount*coinEnum.getPrice();
+							updateCoin.setCount(dbCoin.getCount()-coinCount);
+							dbCoin.setCount(coinCount);
+						}
+						coinList.add(dbCoin);
+						updatedCoinList.add(updateCoin);
 					}
-					coinList.add(dbCoin);
+				} else if(userTransactionForm.getCoin().getPrice() == coinEnum.getPrice()){
+					Coin updateCoin = coinMap.get(coinEnum);
+					updateCoin.setCount(updateCoin.getCount()+1);
 					updatedCoinList.add(updateCoin);
 				}
 			}
