@@ -23,4 +23,6 @@ public class UserTransaction {
 	
 	private String status;
 	
+	private int quantity;
+	
 }

@@ -3,7 +3,7 @@ package com.learning.vending.model;
 import lombok.Data;
 
 @Data
-public class Coin {
+public class Coin{
 
 	private int id;
 	
