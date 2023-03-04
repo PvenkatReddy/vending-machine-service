@@ -9,6 +9,7 @@ import com.learning.vending.jdbcdao.CoinDao;
 import com.learning.vending.jdbcdao.ProductDao;
 import com.learning.vending.jdbcdaoimpl.UserDaoImpl;
 import com.learning.vending.jdbcdaoimpl.UserTransactionDaoImpl;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import com.learning.vending.jdbcdaoimpl.CoinDaoImpl;
 import com.learning.vending.jdbcdaoimpl.ProductDaoImpl;
 import com.learning.vending.service.CustomerService;
@@ -16,6 +17,7 @@ import com.learning.vending.service.SignInService;
 import com.learning.vending.service.SignUpService;
 import com.learning.vending.service.impl.SignInServiceImpl;
 import com.learning.vending.service.impl.SignUpServiceImpl;
+import com.learning.vending.service.impl.UserDetailsServiceImpl;
 import com.learning.vending.service.impl.CustomerServiceImpl;
 
 @Configuration
@@ -56,4 +58,8 @@ public class VendingMachineConfiguration {
 		return new CoinDaoImpl();
 	}
 	
+//    @Bean
+//    public UserDetailsService getUserDetailsService(){
+//		return new UserDetailsServiceImpl();
+//	}
 }
