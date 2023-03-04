@@ -18,7 +18,7 @@ import com.learning.vending.model.Product;
 import com.learning.vending.service.CustomerService;
 
 @RestController
-@RequestMapping("/vendingmachine")
+@RequestMapping("/vendingmachine/customer")
 public class CustomerController {
 	
 	@Autowired
