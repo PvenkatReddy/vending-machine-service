@@ -1,1 +1,5 @@
 rootProject.name = 'vending-machine-service'
+
+include 'vending-machine-service-client'
+include 'vending-machine-service-authorization-server'
+include 'vending-machine-service-resource-server'
